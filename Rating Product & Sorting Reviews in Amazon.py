@@ -64,7 +64,7 @@ pd.set_option('display.float_format', lambda x: '%.5f' % x)
 
 
 ###################################################
-# Adım 1: Veri Setini Okutunuz ve Ürünün Ortalama Puanını Hesaplayınız.
+# Veri Setini Okutunuz ve Ürünün Ortalama Puanını Hesaplayınız.
 ###################################################
 
 df = pd.read_csv("/Users/sinemdokmeci/PycharmProjects/measurement_problems/case_study/case_study_1/amazon_review.csv")
@@ -73,10 +73,10 @@ df.shape
 df["overall"].mean()
 
 ###################################################
-# Adım 2: Tarihe Göre Ağırlıklı Puan Ortalamasını Hesaplayınız.
+# Tarihe Göre Ağırlıklı Puan Ortalamasını Hesaplayınız.
 ###################################################
 
-#aralıkları belirlemek için
+
 df["day_diff"].quantile([0.25,0.50,0.75,1])
 
 df.loc[df["day_diff"] <= 30, "overall"].mean()
@@ -95,12 +95,7 @@ df.loc[df["day_diff"] <= 30, "overall"].mean() * 28/100 + \
 
 
 ###################################################
-# Görev 2: Ürün için Ürün Detay Sayfasında Görüntülenecek 20 Review'i Belirleyiniz.
-###################################################
-
-
-###################################################
-# Adım 1. helpful_no Değişkenini Üretiniz
+# helpful_no Değişkenini Üretiniz
 ###################################################
 
 # Not:
@@ -116,7 +111,7 @@ def score_up_down_diff(up, down):
 score_up_down_diff(df["helpful_yes"], df["helpful_no"])
 
 ###################################################
-# Adım 2. score_pos_neg_diff, score_average_rating ve wilson_lower_bound Skorlarını Hesaplayıp Veriye Ekleyiniz
+# score_pos_neg_diff, score_average_rating ve wilson_lower_bound Skorlarını Hesaplayıp Veriye Ekleyiniz
 ###################################################
 def score_average_rating(up, down):
     if up + down == 0:
@@ -155,7 +150,7 @@ def wilson_lower_bound(up, down, confidence=0.95):
     return (phat + z * z / (2 * n) - z * math.sqrt((phat * (1 - phat) + z * z / (4 * n)) / n)) / (1 + z * z / n)
 
 ##################################################
-# Adım 3. 20 Yorumu Belirleyiniz ve Sonuçları Yorumlayınız.
+# 20 Yorumu Belirleyiniz ve Sonuçları Yorumlayınız.
 ###################################################
 
 df["score_pos_neg_diff"] = df.apply(lambda x: score_up_down_diff(x["helpful_yes"],
