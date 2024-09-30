@@ -12,7 +12,7 @@ ise satın alma yolculuğunu sorunsuz olarak tamamlayacaktır.
 Amazon ürün verilerini içeren bu veri seti ürün kategorileri ile çeşitli metadataları içermektedir.
 Elektronik kategorisindeki en fazla yorum alan ürünün kullanıcı puanları ve yorumları vardır.
 
- Veri Seti Hakkında
+#  Veri Seti Hakkında
  reviewerID: Kullanıcı ID’si
  asin: Ürün ID’si
  reviewerName: Kullanıcı Adı
